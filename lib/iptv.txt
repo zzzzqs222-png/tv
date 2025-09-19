@@ -3861,7 +3861,7 @@ CHC家庭影院,https://mursor.ottiptv.cc/migu/644368373.m3u8?migutoken=eda0112e
 金鹰卡通,http://[2409:8087:74d9:21::6]:80/270000001128/9900000039/index.m3u8$LR•IPV6•47『线路29』
 金鹰卡通,https://epg.pw/stream/c63a5626286e9017c57efde96337b54a1cb81a6626bb93f486fcbc1caadc7948.m3u8$LR•IPV4•47『线路30』
 金鹰卡通,https://epg.pw/stream/33c44b3d14a45ab0fbe06d98b6608a0067dd068ebb6bd8e4a931cb2e600f8548.m3u8$LR•IPV4•47『线路31』
-金鹰卡通,http://phoneqq.qing.mgtv.com/nn_live/nn_x64/dWlwPTEwNi4xNC4zOC41NSZ0ZXJtPTUmcWlkPSZjZG5leF9pZD1xcV9waG9uZV9saXZlJmNocz0mZGVmPTEmcz01YTEyMmVmZDNkNGQ0YzY5ZDM0ZTU4YTdiMDlmODU1YiZ1aWQ9JnV1aWQ9NzYxNjdmMTlhNjk2ZDczMjQ2YWRlZDUzZDMwYjg3MTktNmEwZTI2Mzcmdj0yJmFzPTAmZXM9MTc1ODI2MTMyNA,,/JYKTMPP360.m3u8$LR•IPV4•47『线路32』
+金鹰卡通,http://phoneqq.qing.mgtv.com/nn_live/nn_x64/dWlwPTEwNi4xNC4zOC41NSZ0ZXJtPTUmcWlkPSZjZG5leF9pZD1xcV9waG9uZV9saXZlJmNocz0mZGVmPTEmcz05ZTcxZjkyNmFhNjFhODExYzczYzlkYmE1NDlmZmY2NiZ1aWQ9JnV1aWQ9MDg3NjM5NmRiOTJkMmYwZDVhZjkxMzZhMGMzZGZhYWQtNmEwZTI2Mzcmdj0yJmFzPTAmZXM9MTc1ODI5MDE1NA,,/JYKTMPP360.m3u8$LR•IPV4•47『线路32』
 金鹰卡通,https://zby.130519.xyz/PLTV/11/224/3221226094/index.m3u8$LR•IPV4•47『线路33』
 金鹰卡通,http://itv.iptv1688.top:2016/itv.php?id=金鹰卡通$LR•IPV4•47『线路34』
 金鹰卡通,http://home.wwang.pw:35455/itv/5000000006000040024.m3u8?cdn=bestzb$LR•IPV4•47『线路35』
