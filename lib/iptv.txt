@@ -1519,7 +1519,7 @@ CGTN阿语,https://0472.org/hls/cgtna.m3u8$LR•IPV4•4『线路4』
 重庆卫视,http://dsj.motem.top:8880/bptv/10000100000000050000000004796458.m3u8$LR•IPV4•64『线路42』
 重庆卫视,http://a21709.tv.netsite.cc/proxy/562106987/562106987.m3u8$LR•IPV4•64『线路43』
 重庆卫视,http://220.192.12.20:8003/udp/225.0.4.187:7980?$LR•IPV4•64『线路44』
-重庆卫视,http://p.ytelc.com/videojs.php?id=https://sjlivecdn9.cbg.cn/202510010006/app_2/_definst_/ls_2.stream/chunklist.m3u8$LR•IPV4•64『线路45』
+重庆卫视,http://p.ytelc.com/videojs.php?id=https://sjlivecdn9.cbg.cn/202510010300/app_2/_definst_/ls_2.stream/chunklist.m3u8$LR•IPV4•64『线路45』
 重庆卫视,http://iptv.huuc.edu.cn/hls/cqhd.m3u8$LR•IPV4•64『线路46』
 重庆卫视,http://ygbh.site/php/bfgd.php?id=107$LR•IPV4•64『线路47』
 重庆卫视,https://cc06.tv12.xyz/34.m3u8$LR•IPV4•64『线路48』
