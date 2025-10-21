@@ -11,8 +11,8 @@
             "ext": "./lib/tokenm.json$$$./lib/douban.json"
         },
         {
-            "key": "大白鲨",
-            "name": "大白鲨",
+            "key": "爱豆",
+            "name": "爱豆",
             "type": 3,
             "api": "csp_XBPQ",
             "jar": "./jar/XBPQ.jar",
@@ -464,3 +464,4 @@
     "warningText": "1"
 
 }
+
