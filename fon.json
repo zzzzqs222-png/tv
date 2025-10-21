@@ -46,11 +46,11 @@
     },
     {
       "key": "爱豆",
-      "name": "爱豆影视",
-      "type": "3",
+      "name": "爱豆",
+      "type": 3,
       "api": "csp_XBPQ",
-      "jar": "./lib/XBPQ.jar",
-      "ext": "./js/ss/爱豆.json"
+      "jar": "./jar/XBPQ.jar",
+      "ext": "./js/s/爱豆.json"
     },
     {
       "key": "py_Phub",
@@ -1278,5 +1278,6 @@
     "warningText": "1"
 
 }
+
 
 
