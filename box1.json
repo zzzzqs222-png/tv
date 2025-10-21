@@ -16,7 +16,7 @@
             "type": 3,
             "api": "csp_XBPQ",
             "jar": "./jar/XBPQ.jar",
-            "ext": "./js/s/大白鲨.json"
+            "ext": "./js/s/爱豆.json"
         },
         {
             "key": "Hdhive",
@@ -462,4 +462,5 @@
     "logo": "./img/pg.gif",
     "spider": "./pg.jar;md5;cc8306a7ea9413d2d11120de4e32590f",
     "warningText": "1"
+
 }
