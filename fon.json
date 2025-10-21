@@ -47,10 +47,6 @@
       "key": "爱豆",
       "name": "爱豆影视",
       "type": "3",
-      "changeable": 1,
-      "searchable": 0,
-      "quickSearch": 0,
-      "filterable": 0,
       "api": "csp_XBPQ",
       "jar": "./lib/XBPQ.jar",
       "ext": "./js/ss/爱豆.json"
@@ -1281,3 +1277,4 @@
     "warningText": "1"
 
 }
+
