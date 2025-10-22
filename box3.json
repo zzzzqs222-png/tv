@@ -49,18 +49,6 @@
       "changeable": 1
     },
     {
-      "key": "电风扇",
-      "name": "电风扇",
-      "type": 1,
-      "api": "https://aidou.la/api.php/provide/vod",
-      "searchable": 1,
-      "style": {
-        "type": "rect",
-        "ratio": 1.33
-      },
-      "changeable": 1
-    },
-    {
       "key": "美少女",
       "name": "美少女",
       "type": 0,
@@ -692,6 +680,7 @@
     "warningText": "1"
 
 }
+
 
 
 
