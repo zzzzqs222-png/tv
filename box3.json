@@ -49,10 +49,10 @@
       "changeable": 1
     },
     {
-      "key": "豆豆",
-      "name": "豆豆",
+      "key": "电风扇",
+      "name": "电风扇",
       "type": 1,
-      "api": "https://51155.cc/api.php/provide/vod",
+      "api": "https://aidou.la/api.php/provide/vod",
       "searchable": 1,
       "style": {
         "type": "rect",
@@ -692,5 +692,6 @@
     "warningText": "1"
 
 }
+
 
 
