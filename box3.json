@@ -27,7 +27,7 @@
             "ext": {
         "直接播放": "1",
         "嗅探词": "index.m3u8#.mp4#m3u8#.m3u8#/tos/#.flv#video/tos",
-        "数组": "style=\"text-decoration: none;\"&&</div>",
+        "数组": "class=\"home-rows-videos-div search-videos\">&&</div>",
         "图片": "border-radius: 3px\" src=\"&&\"",
         "标题": "border-radius: 3px\">&&</div>",
         "链接": "href=\"&&\"",
@@ -697,6 +697,7 @@
     "warningText": "1"
 
 }
+
 
 
 
