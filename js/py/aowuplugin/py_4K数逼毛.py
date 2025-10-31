@@ -19,7 +19,7 @@ import binascii
 
 sys.path.append('..')
 
-xurl = "https://www.fullhd.xxx/"
+xurl = "https://www.fullhd.xxx/zh/"
 
 headerx = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36'
@@ -126,7 +126,7 @@ class Spider(Spider):
             if soups and len(soups) > 1:
                 soups = soups[0]
                 vods = soups.find_all('div', class_="item")
-                vods = vods[1:]
+                vods = vods[2:]
 
                 for vod in vods:
 
