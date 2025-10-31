@@ -126,7 +126,7 @@ class Spider(Spider):
             if soups and len(soups) > 1:
                 soups = soups[0]
                 vods = soups.find_all('div', class_="item")
-                vods = vods[2:]
+                vods = vods[1:]
 
                 for vod in vods:
 
@@ -183,6 +183,7 @@ class Spider(Spider):
 
             for soup in soups:
                 vods = soup.find_all('div', class_="item")
+                vods = vods[1:]
 
                 for vod in vods:
 
@@ -297,6 +298,7 @@ class Spider(Spider):
 
         for soup in soups:
             vods = soup.find_all('div', class_="item")
+            vods = vods[1:]
 
             for vod in vods:
 
