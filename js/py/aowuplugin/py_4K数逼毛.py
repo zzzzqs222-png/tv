@@ -106,9 +106,9 @@ class Spider(Spider):
 
     def homeContent(self, filter):
         result = {}
-        result = {"class": [{"type_id": "/latest-updates", "type_name": "最新视频🌠"},
-                            {"type_id": "/top-rated", "type_name": "最佳视频🌠"},
-                            {"type_id": "/most-popular", "type_name": "热门影片🌠"}],
+        result = {"class": [{"type_id": "latest-updates", "type_name": "最新视频🌠"},
+                            {"type_id": "top-rated", "type_name": "最佳视频🌠"},
+                            {"type_id": "most-popular", "type_name": "热门影片🌠"}],
                  }
 
         return result
