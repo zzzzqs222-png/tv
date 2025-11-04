@@ -76,8 +76,7 @@ class Spider(Spider):
         return result
 
     def homeVideoContent(self):
-        data = self.getpq()
-        return {'list': self.getlist(data(".thumb-list--sidebar .thumb-list__item"))}
+        pass
 
     def categoryContent(self, tid, pg, filter, extend):
         vdata = []
@@ -189,50 +188,24 @@ class Spider(Spider):
 
     def detailContent(self, ids):
         data = self.getpq(ids[0])
-        djs = self.getjsdata(data)
         vn = data('meta[property="og:title"]').attr('content')
-        dtext = data('#video-tags-list-container')
-        href = dtext('a').attr('href')
-        title = dtext('span[class*="body-bold-"]').eq(0).text()
-        pdtitle = ''
-        if href:
-            pdtitle = '[a=cr:' + json.dumps({'id': 'two_click_' + href, 'name': title}) + '/]' + title + '[/a]'
+
         vod = {
             'vod_name': vn,
-            'vod_director': pdtitle,
-            'vod_remarks': data('.rb-new__info').text(),
-            'vod_play_from': 'Xhamster',
+            'vod_director': '',
+            'vod_remarks': '',
+            'vod_play_from': 'FullHD',
             'vod_play_url': ''
         }
+
         try:
-            plist = []
-            d = djs['xplayerSettings']['sources']
-            f = d.get('standard')
-
-            def get_sort_key(url):
-                quality = url.split('$')[0]
-                number = ''.join(filter(str.isdigit, quality))
-                number = int(number) if number else 0
-                return -number, quality
-
-            if f:
-                for key, value in f.items():
-                    if isinstance(value, list):
-                        for info in value:
-                            id = self.e64(f'{0}@@@@{info.get("url") or info.get("fallback")}')
-                            plist.append(f"{info.get('label') or info.get('quality')}${id}")
-
-            plist.sort(key=get_sort_key)
-            if d.get('hls'):
-                for format_type, info in d['hls'].items():
-                    if url := info.get('url'):
-                        encoded = self.e64(f'{0}@@@@{url}')
-                        plist.append(f"{format_type}${encoded}")
-
-        except Exception as e:
+            # 获取视频播放列表
             plist = [f"{vn}${self.e64(f'{1}@@@@{ids[0]}')}"]
-            print(f"获取视频信息失败: {str(e)}")
-        vod['vod_play_url'] = '#'.join(plist)
+            vod['vod_play_url'] = '#'.join(plist)
+        except Exception as e:
+            print(f"获取视频播放列表失败: {str(e)}")
+            vod['vod_play_url'] = f"{vn}${self.e64(f'{1}@@@@{ids[0]}')}"
+
         return {'list': [vod]}
 
     def searchContent(self, key, quick, pg="1"):
@@ -292,11 +265,10 @@ class Spider(Spider):
         vlist = []
         for i in data.items():
             vlist.append({
-                'vod_id': i('.role-pop').attr('href'),
-                'vod_name': i('.video-thumb-info a').text(),
-                'vod_pic': i('.role-pop img').attr('src'),
-                'vod_year': i('.video-thumb-info .video-thumb-views').text().split(' ')[0],
-                'vod_remarks': i('.role-pop div[data-role="video-duration"]').text(),
+                'vod_id': i('.thumb').attr('href'),
+                'vod_name': i('.thumb-title').text(),
+                'vod_pic': i('img').attr('src'),
+                'vod_remarks': i('.duration').text(),
                 'style': {'ratio': 1.33, 'type': 'rect'}
             })
         return vlist
@@ -311,6 +283,4 @@ class Spider(Spider):
             return pq(response.encode('utf-8'))
 
     def getjsdata(self, data):
-        vhtml = data("script[id='initials-script']").text()
-        jst = json.loads(vhtml.split('initials=')[-1][:-1])
-        return jst
+        return {}
