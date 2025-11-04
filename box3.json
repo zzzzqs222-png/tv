@@ -102,6 +102,16 @@
       "changeable": 0
     },
     {
+      "key": "py4kfull",
+      "name": "py4kfull(T3)",
+      "type": 3,
+      "api": "./js/py/aowuplugin/py4kfull.py",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 0,
+      "changeable": 0
+    },
+    {
       "key": "py_51吸瓜",
       "name": "51吸瓜(T3)",
       "type": 3,
@@ -680,6 +690,7 @@
     "warningText": "1"
 
 }
+
 
 
 
