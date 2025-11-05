@@ -60,7 +60,7 @@ class Spider(Spider):
         cateManual = {
             "最新视频": "/latest-updates",
             "最佳视频": "/top-rated",
-            "热门影片": "/most-popular",
+            "热门影片": "/most-popular"
         }
         classes = []
         filters = {}
@@ -223,5 +223,6 @@ class Spider(Spider):
         vhtml = data("script[type='application/ld+json']").text()
         jst = json.loads(vhtml.split('initials=')[-1][:-1])
         return jst
+
 
 
