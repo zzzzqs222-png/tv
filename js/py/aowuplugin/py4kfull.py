@@ -202,7 +202,7 @@ class Spider(Spider):
             vlist.append({
                 'vod_id': i('a').attr('href'),
                 'vod_name': i('a').attr('title'),
-                'vod_pic': i('img').attr('data-src'),
+                'vod_pic': i('img').attr('src'),
                 'vod_remarks': i('.duration').text(),
                 'style': {'ratio': 1.33, 'type': 'rect'}
             })
@@ -221,6 +221,7 @@ class Spider(Spider):
         vhtml = data("script[type='application/ld+json']").text()
         jst = json.loads(vhtml.split('initials=')[-1][:-1])
         return jst
+
 
 
 
