@@ -15,26 +15,12 @@ from base.spider import Spider
 class Spider(Spider):
 
     def init(self, extend=""):
-        try:self.proxies = json.loads(extend)
-        except:self.proxies = {}
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.5410.0 Safari/537.36',
-            'pragma': 'no-cache',
-            'cache-control': 'no-cache',
-            'sec-ch-ua-platform': '"Windows"',
-            'sec-ch-ua': '"Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"',
-            'dnt': '1',
-            'sec-ch-ua-mobile': '?0',
-            'sec-fetch-site': 'cross-site',
-            'sec-fetch-mode': 'cors',
-            'sec-fetch-dest': 'empty',
-            'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
-            'priority': 'u=1, i',
-        }
+        self.proxy = ''
+        if extend and json.loads(extend).get('proxy'):
+            self.proxy = json.loads(extend).get('proxy')
         self.host = self.gethost()
-        self.headers.update({'referer': f'{self.host}/', 'origin': self.host})
+        self.headers['referer'] = f'{self.host}/'
         self.session = Session()
-        self.session.proxies.update(self.proxies)
         self.session.headers.update(self.headers)
         pass
 
@@ -92,10 +78,13 @@ class Spider(Spider):
         url = f"{self.host}{ids[0]}"
         data = self.getpq(ids[0])
         vn = data('meta[property="og:title"]').attr('content')
+        dtext = data('.margin-fix .usernameWrap a')
+        pdtitle = '[a=cr:' + json.dumps(
+            {'id': 'director_click_' + dtext.attr('href'), 'name': dtext.text()}) + '/]' + dtext.text() + '[/a]'
         vod = {
             'vod_name': vn,
-            'vod_director': vn,
-            'vod_remarks': vn,
+            'vod_director': pdtitle,
+            'vod_remarks': (data('.userInfo').text() + ' / ' + data('.ratingInfo').text()).replace('\n', ' / '),
             'vod_play_from': 'Pornhub',
             'vod_play_url': ''
         }
@@ -127,40 +116,13 @@ class Spider(Spider):
         return {'parse': int(ids[0]), 'url': ids[1], 'header': self.headers}
 
     def localProxy(self, param):
-        url = self.d64(param.get('url'))
-        if param.get('type') == 'm3u8':
-            return self.m3Proxy(url)
-        else:
-            return self.tsProxy(url)
-
-    def m3Proxy(self, url):
-        ydata = requests.get(url, headers=self.headers, proxies=self.proxies, allow_redirects=False)
-        data = ydata.content.decode('utf-8')
-        if ydata.headers.get('Location'):
-            url = ydata.headers['Location']
-            data = requests.get(url, headers=self.headers, proxies=self.proxies).content.decode('utf-8')
-        lines = data.strip().split('\n')
-        last_r = url[:url.rfind('/')]
-        parsed_url = urlparse(url)
-        durl = parsed_url.scheme + "://" + parsed_url.netloc
-        for index, string in enumerate(lines):
-            if '#EXT' not in string:
-                if 'http' not in string:
-                    domain = last_r if string.count('/') < 2 else durl
-                    string = domain + ('' if string.startswith('/') else '/') + string
-                lines[index] = self.proxy(string, string.split('.')[-1].split('?')[0])
-        data = '\n'.join(lines)
-        return [200, "application/vnd.apple.mpegur", data]
-
-    def tsProxy(self, url):
-        data = requests.get(url, headers=self.headers, proxies=self.proxies, stream=True)
-        return [200, data.headers['Content-Type'], data.content]
+        pass
 
     def gethost(self):
         try:
             response = requests.get('https://www.fullhd.xxx/zh', headers=self.headers, proxies=self.proxies,
                                     allow_redirects=False)
-            return response.headers['Location'][:-1]
+            return response.headers['Location']
         except Exception as e:
             print(f"获取主页失败: {str(e)}")
             return "https://www.fullhd.xxx"
@@ -203,6 +165,3 @@ class Spider(Spider):
             print(f"请求失败: , {str(e)}")
             return None
 
-    def proxy(self, data, type='img'):
-        if data and len(self.proxies):return f"{self.getProxyUrl()}&url={self.e64(data)}&type={type}"
-        else:return data
