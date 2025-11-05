@@ -84,7 +84,7 @@ class Spider(Spider):
         result['pagecount'] = 9999
         result['limit'] = 90
         result['total'] = 999999
-        if tid in ['/4k', '/newest', '/best'] or 'two_click_' in tid:
+        if tid in ['/latest-updates', '/top-rated', '/most-popular'] or 'two_click_' in tid:
             if 'two_click_' in tid: tid = tid.split('click_')[-1]
             data = self.getpq(f'{tid}{extend.get("type", "")}/{pg}')
             vdata = self.getlist(data("#list_videos_videos_watched_right_now_items .item"))
@@ -200,7 +200,7 @@ class Spider(Spider):
             vlist.append({
                 'vod_id': i('a').attr('href'),
                 'vod_name': i('a').attr('title'),
-                'vod_pic': i('lazyloaded').attr('src'),
+                'vod_pic': i('img').attr('data-src'),
                 'vod_remarks': i('.duration').text(),
                 'style': {'ratio': 1.33, 'type': 'rect'}
             })
