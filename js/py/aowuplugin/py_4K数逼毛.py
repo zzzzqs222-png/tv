@@ -113,6 +113,7 @@ class Spider(Spider):
 
         return result
 
+
     def homeVideoContent(self):
         videos = []
         try:
@@ -126,7 +127,6 @@ class Spider(Spider):
             if soups and len(soups) > 1:
                 soups = soups[0]
                 vods = soups.find_all('div', class_="item")
-                vods = vods[1:]
 
                 for vod in vods:
 
@@ -158,7 +158,7 @@ class Spider(Spider):
         except:
             pass
 
-    def categoryContent(self, cid, pg, filter, ext):
+    def categoryContent(self, tid, pg, filter, extend):
         result = {}
         if pg:
             page = int(pg)
@@ -168,10 +168,10 @@ class Spider(Spider):
         videos = []
 
         if page == '1':
-            url = f'{xurl}/{cid}/'
+            url = f'{xurl}/{tid}/'
 
         else:
-            url = f'{xurl}/{cid}/{str(page)}/'
+            url = f'{xurl}/{tid}/{str(page)}/'
 
         try:
             detail = requests.get(url=url, headers=headerx)
@@ -183,7 +183,6 @@ class Spider(Spider):
 
             for soup in soups:
                 vods = soup.find_all('div', class_="item")
-                vods = vods[1:]
 
                 for vod in vods:
 
@@ -298,7 +297,6 @@ class Spider(Spider):
 
         for soup in soups:
             vods = soup.find_all('div', class_="item")
-            vods = vods[1:]
 
             for vod in vods:
 
@@ -343,7 +341,3 @@ class Spider(Spider):
         elif params['type'] == "ts":
             return self.proxyTs(params)
         return None
-
-
-
-
