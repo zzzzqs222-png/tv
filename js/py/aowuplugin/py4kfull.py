@@ -84,13 +84,8 @@ class Spider(Spider):
         result['pagecount'] = 9999
         result['limit'] = 90
         result['total'] = 999999
-        if tid == '/channels':
-            data = self.getpq(f'{tid}/{pg}')
-            vdata = self.getlist(data(".margin-fix .item"))
-        elif tid == '/top-rated':
-            data = self.getpq(f'{tid}/{pg}')
-            vdata = self.getlist(data(".margin-fix .item"))
-        elif tid == '/most-popular':
+        if tid in ['/latest-updates', '/top-rated', '/most-popular'] or 'two_click_' in tid:
+            if 'two_click_' in tid: tid = tid.split('click_')[-1]
             data = self.getpq(f'{tid}/{pg}')
             vdata = self.getlist(data(".margin-fix .item"))
         result['list'] = vdata
@@ -223,6 +218,7 @@ class Spider(Spider):
         vhtml = data("script[type='application/ld+json']").text()
         jst = json.loads(vhtml.split('initials=')[-1][:-1])
         return jst
+
 
 
 
