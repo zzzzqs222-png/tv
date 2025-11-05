@@ -75,7 +75,7 @@ class Spider(Spider):
 
     def homeVideoContent(self):
         data = self.getpq()
-        return {'list': self.getlist(data("#list_videos_videos_watched_right_now_items .item"))}
+        return {'list': self.getlist(data(".margin-fix .item"))}
 
     def categoryContent(self, tid, pg, filter, extend):
         vdata = []
@@ -86,13 +86,13 @@ class Spider(Spider):
         result['total'] = 999999
         if tid == '/channels':
             data = self.getpq(f'{tid}/{pg}')
-            vdata = self.getlist(data("#list_videos_videos_watched_right_now_items .item"))
+            vdata = self.getlist(data(".margin-fix .item"))
         elif tid == '/top-rated':
             data = self.getpq(f'{tid}/{pg}')
-            vdata = self.getlist(data("#list_videos_videos_watched_right_now_items .item"))
+            vdata = self.getlist(data(".margin-fix .item"))
         elif tid == '/most-popular':
             data = self.getpq(f'{tid}/{pg}')
-            vdata = self.getlist(data("#list_videos_videos_watched_right_now_items .item"))
+            vdata = self.getlist(data(".margin-fix .item"))
         result['list'] = vdata
         return result
 
@@ -146,7 +146,7 @@ class Spider(Spider):
 
     def searchContent(self, key, quick, pg="1"):
         data = self.getpq(f'/search/{key}?page={pg}')
-        return {'list': self.getlist(data(".thumb-list--sidebar .thumb-list__item")), 'page': pg}
+        return {'list': self.getlist(data(".margin-fix .item")), 'page': pg}
 
     def playerContent(self, flag, id, vipFlags):
         headers = {
@@ -223,6 +223,7 @@ class Spider(Spider):
         vhtml = data("script[type='application/ld+json']").text()
         jst = json.loads(vhtml.split('initials=')[-1][:-1])
         return jst
+
 
 
 
