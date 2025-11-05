@@ -120,7 +120,7 @@ class Spider(Spider):
 
     def gethost(self):
         try:
-            response = requests.get('https://www.fullhd.xxx/zh', headers=self.headers, proxies=self.proxies,
+            response = requests.get('https://www.fullhd.xxx', headers=self.headers, proxies=self.proxies,
                                     allow_redirects=False)
             return response.headers['Location']
         except Exception as e:
@@ -157,11 +157,13 @@ class Spider(Spider):
             })
         return vlist
 
-    def getpq(self, path):
+        
+    def getpq(self, path=''):
+        h = '' if path.startswith('http') else self.host
+        response = self.session.get(f'{self.proxy}{h}{path}').text
         try:
-            response = self.session.get(f'{self.host}{path}').text
-            return pq(response.encode('utf-8'))
+            return pq(response)
         except Exception as e:
-            print(f"请求失败: , {str(e)}")
-            return None
+            print(f"{str(e)}")
+            return pq(response.encode('utf-8'))
 
